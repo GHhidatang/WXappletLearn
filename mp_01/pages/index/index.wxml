@@ -1,23 +1,22 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<button bindtap="btnTapHandler">按钮</button>
+<button bindtap="CountChange" data-info="{{10}}">+10</button>
+<input value="{{msg}}" bindinput="inputHandler"></input>
+<view wx:if="{{type == 1}}">男</view>
+<view wx:elif="{{type == 2}}">女</view>
+<view wx:else>保密</view>
+
+<block wx:if="{{true}}">
+  <view>1</view>
+  <view>2</view>
+</block>
+
+<view hidden="{{flag}}">123</view>
+
+<view wx:for="{{arr1}}" wx:key="index">
+  索引是：{{index}} item项是：{{item}}
+</view>
+
+<view wx:for="{{sueList}}" wx:key="id" class="username">
+  索引是：{{index}} item项是：{{item.name}}
 </view>
